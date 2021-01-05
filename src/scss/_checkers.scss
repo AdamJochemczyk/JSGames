@@ -1,0 +1,19 @@
+.checkers{
+    background-color: $green;
+    position: absolute;
+    top: 15000px;
+    width: 100vw;
+}
+.playCheckers{
+    animation: startPlayCheckers 1s;
+    z-index: 1;
+    top: 0;
+}
+@keyframes startPlayCheckers{
+    0%{
+        top: 15000px;
+    }
+    100%{
+        top: 0px;
+    }
+}

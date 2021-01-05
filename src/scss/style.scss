@@ -1,0 +1,22 @@
+@import "_variables.scss";
+@import "_menu.scss";
+@import "_rock.scss";
+@import "_checkers.scss";
+@import "_card.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    position: relative;
+}
+section{
+    height: 100vh;
+}

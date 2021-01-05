@@ -1,0 +1,20 @@
+.rock{
+    background-color: $blue;
+    position: absolute;
+    left: -15000px;
+    width: 100vw;
+}
+.playRock{
+    animation: startPlayRock 1s;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+@keyframes startPlayRock{
+    0%{
+        left: -15000px;
+    }
+    100%{
+        left: 0;
+    }
+}

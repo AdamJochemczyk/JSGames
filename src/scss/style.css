@@ -1,0 +1,117 @@
+.menu {
+  background-color: #C2E812;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: absolute;
+  width: 600px;
+  font-weight: 700;
+}
+
+.triangleToBottom, .leftTriangle, .rightTriangle, .bottomTriangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 150px 100px 0 100px;
+  cursor: pointer;
+}
+
+.triangleToBottom:hover, .leftTriangle:hover, .rightTriangle:hover, .bottomTriangle:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.middleTriangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 100px 150px 100px;
+  border-color: transparent transparent #F05D5E transparent;
+  cursor: pointer;
+}
+
+.middleTriangle__text {
+  position: relative;
+  top: 90px;
+  left: -25px;
+}
+
+.middleTriangle:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.leftTriangle {
+  border-color: #22577A transparent transparent transparent;
+}
+
+.leftTriangle__text {
+  position: relative;
+  text-align: center;
+  top: -130px;
+  left: -50px;
+  width: 100px;
+}
+
+.rightTriangle {
+  border-color: #A9B4C2 transparent transparent transparent;
+}
+
+.rightTriangle__text {
+  position: relative;
+  top: -100px;
+  left: -20px;
+}
+
+.bottomTriangle {
+  border-color: #21fa90 transparent transparent transparent;
+  margin-left: 200px;
+  margin-top: 100px;
+}
+
+.bottomTriangle__text {
+  position: relative;
+  top: -100px;
+  left: -35px;
+}
+
+.rock {
+  background-color: #22577A;
+}
+
+.checkers {
+  background-color: #21fa90;
+}
+
+.card {
+  background-color: #A9B4C2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+section {
+  height: 100vh;
+}
