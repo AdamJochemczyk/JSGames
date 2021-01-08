@@ -11,3 +11,4 @@ This project was developed to improve my skills in:
 * JS,
 * testing with JEST,
 * webpack,
+Learn basics of github actions and CI/CD processes
