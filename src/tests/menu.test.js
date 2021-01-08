@@ -20,6 +20,7 @@ describe("Tests for scripts in menu", () => {
     <div class="cards"></div>
     <div class="checkers"></div>
     <div class="rock"></div>
+    <button class="fa-arrow-circle-right"></button>
     `;
 
   test("menu elements exists", () => {
