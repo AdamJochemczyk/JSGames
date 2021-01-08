@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
+  devtool: "source-map",
   entry: "./src/index.js",
   output: {
     filename: "bundle.min.js",
@@ -21,19 +22,21 @@ module.exports = {
       },
 
       {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader", /* create style nodes from JS strings */
-          "css-loader", /*add styles to header */
+          "style-loader",
+          "css-loader",
           {
-            loader: "postcss-loader",
+            loader: "sass-loader",
             options: {
-              postcssOptions: {
-                plugins: ()=>[['autoprefixer']],
-              },
+              implementation: require("sass"),
             },
           },
-          "sass-loader" /*compile sass to css */,
+          "postcss-loader",
         ],
       },
       {

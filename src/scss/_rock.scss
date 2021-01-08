@@ -3,18 +3,117 @@
     position: absolute;
     left: -15000px;
     width: 100vw;
+    color: #fff;
+
+    &__title{
+        text-align: center;
+        margin-top: 5%;
+        font-size: 2rem;
+    }
+    
+    &__container{
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__points{
+        display: flex;
+        justify-content: space-between;
+         width: 320px;
+        .yourScore{
+            padding-left: 1rem;
+        }
+        .enemyScore{
+            padding-right: 1rem;
+        }
+    }
+    &__row{
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        width: 400px;
+        gap: 10px;
+
+        .choose{
+            width: 100px;
+            height: 100px;
+            &__img{
+                width: 100%;
+                border-radius: 50%;
+            }
+            &__txt{
+                text-align: center;
+            }
+        }
+        
+    }
 }
+
+.fa-arrow-circle-right{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #fff;
+    visibility: hidden;
+}
+
 .playRock{
     animation: startPlayRock 1s;
     z-index: 1;
     left: 0;
     top: 0;
 }
+
 @keyframes startPlayRock{
     0%{
         left: -15000px;
     }
     100%{
         left: 0;
+    }
+}
+#enemy__img{
+    opacity: 0.7;
+    cursor: inherit;
+}
+.choose__img{
+    opacity: 0.7;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.startRockGame{
+    padding: 10px 20px;
+    background: transparent;
+    border: solid 2.5px darken($blue,30%);
+    cursor: pointer;
+    margin-top: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    outline: none;
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+.clickedButton{
+        background: $red;
+    }
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    p{
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        color:#fff;
     }
 }
