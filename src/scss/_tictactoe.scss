@@ -1,0 +1,70 @@
+.tictactoe{
+    background-color: $gray;
+    position: absolute;
+    top: 0;
+    left: 15000px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+
+    .tictactoe__winner{
+        font-size: 1.5rem;
+    }
+
+    &__container{
+        background-color: #000;
+        display: grid;
+        grid-template-columns: repeat(3,80px);
+        grid-template-rows: repeat(3,80px);
+        grid-gap: 10px;
+        margin: 2rem 0;
+
+        .field{
+            background-color: $gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+    }
+    &__btn{
+        background-color: transparent;
+        outline: none;
+        padding: 10px 20px;
+        border: solid 2px #000;
+        margin: 5px;
+        font-weight: 700;
+        color: #000;
+        cursor: pointer;
+
+        &:hover{
+            color: #fff;
+            background-color: #000;
+        }
+    }
+    .fa-arrow-circle-left{
+        position: fixed;
+        top: 5px;
+        left: 10px;
+        font-size: 3rem;
+        color: #fff;
+        visibility: hidden;
+    }
+}
+.playTicTacToe{
+    animation: startPlayTicTacToe 1s;
+    z-index: 1;
+    left: 0;
+}
+@keyframes startPlayTicTacToe{
+    0%{
+        left: 15000px;
+    }
+    100%{
+        left: 0px;
+    }
+}

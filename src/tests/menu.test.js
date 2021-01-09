@@ -6,7 +6,7 @@ import {
   rightTriangle,
   bottomTriangle,
   middleTriangle,
-  cards,
+  tictactoe,
   checkers,
   rock,
 } from "../scripts/menu";
@@ -17,10 +17,11 @@ describe("Tests for scripts in menu", () => {
     <div class="middleTriangle"></div>
     <div class="rightTriangle"></div>
     <div class="bottomTriangle"></div>
-    <div class="cards"></div>
+    <div class="tictactoe"></div>
     <div class="checkers"></div>
     <div class="rock"></div>
     <button class="fa-arrow-circle-right"></button>
+    <button class="fa-arrow-circle-left"></button>
     `;
 
   test("menu elements exists", () => {
@@ -33,7 +34,7 @@ describe("Tests for scripts in menu", () => {
 
   test("game sections exists", () => {
     getGames();
-    expect(cards.classList.contains("cards")).toBe(true);
+    expect(tictactoe.classList.contains("tictactoe")).toBe(true);
     expect(checkers.classList.contains("checkers")).toBe(true);
     expect(rock.classList.contains("rock")).toBe(true);
   });

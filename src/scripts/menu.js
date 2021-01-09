@@ -2,10 +2,11 @@ let leftTriangle,
   rightTriangle,
   bottomTriangle,
   middleTriangle,
-  cards,
+  tictactoe,
   checkers,
   rock,
-  backRockButton;
+  backRockButton,
+  backTicButton;
 
 function getMenuElements() {
   leftTriangle = document.querySelector(".leftTriangle");
@@ -14,7 +15,7 @@ function getMenuElements() {
   middleTriangle = document.querySelector(".middleTriangle");
 }
 function getGames() {
-  cards = document.querySelector(".cards");
+  tictactoe = document.querySelector(".tictactoe");
   checkers = document.querySelector(".checkers");
   rock = document.querySelector(".rock");
 }
@@ -27,10 +28,19 @@ function addMenuActions() {
   });
 
   backRockButton = document.querySelector(".fa-arrow-circle-right");
+  backTicButton = document.querySelector(".fa-arrow-circle-left");
 
   rightTriangle.addEventListener("click", () => {
-    cards.classList.add("playCards");
+    tictactoe.classList.add("playTicTacToe");
+    backTicButton.classList.add("v_show");
+    backTicButton.style.visibility="visible";
   });
+
+  backTicButton.addEventListener("click",()=>{
+    backTicButton.classList.toggle("v_show");
+    tictactoe.classList.remove("playTicTacToe")
+    backTicButton.style.visibility = "hidden";
+  })
 
   bottomTriangle.addEventListener("click", () => {
     checkers.classList.add("playCheckers");
@@ -55,7 +65,7 @@ export {
   rightTriangle,
   bottomTriangle,
   middleTriangle,
-  cards,
+  tictactoe,
   checkers,
   rock,
 };

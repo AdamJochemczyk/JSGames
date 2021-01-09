@@ -70,10 +70,8 @@ describe("Tests for rock, scissors and paper game", () => {
   test("Right return who win, when player choose paper",()=>{
     setChoose("paper");
     if(enemyChoose==="rock"){
-      console.log("PlayerScore in test:"+playerScore)
         expect(playerScore===1).toBe(true)
     }else if(enemyChoose==="scissors"){
-      console.log("EnemyScore in test:" +enemyScore);
         expect(enemyScore===1).toBe(true)
     }else{
         expect(playerScore===0 && enemyScore===0).toBe(true)
