@@ -1,19 +1,74 @@
-.checkers{
-    background-color: $green;
-    position: absolute;
+.checkers {
+  background-color: $green;
+  position: absolute;
+  top: 15000px;
+  width: 100vw;
+  color: #fff;
+}
+.playCheckers {
+  animation: startPlayCheckers 1s;
+  z-index: 1;
+  top: 0;
+}
+@keyframes startPlayCheckers {
+  0% {
     top: 15000px;
-    width: 100vw;
+  }
+  100% {
+    top: 0px;
+  }
 }
-.playCheckers{
-    animation: startPlayCheckers 1s;
-    z-index: 1;
-    top: 0;
+.checkers__container {
+  text-align: center;
+
+  .checkers__board {
+    margin: auto;
+    background-color: #000;
+    td {
+      background-color: #ba7a3a;
+      width: 65px;
+      height: 65px;
+    }
+    @mixin piece {
+      width: 20px;
+      height: 20px;
+      padding: 15px;
+      border-radius: 50px;
+      border: solid 1px #fff;
+      margin: auto;
+    }
+    .noPieceHere {
+      background-color: #f0d2b4;
+    }
+    .black-piece {
+      @include piece;
+      background-color: #000;
+    }
+    .red-piece {
+      @include piece;
+      background-color: $red;
+    }
+    .king .red-piece {
+      background-color: orange;
+    }
+    .king .red-piece {
+      background-color: purple;
+    }
+  }
+
+  .red-turn-text{
+    font-size: 2rem;
+  }
+  .black-turn-text{
+    font-size: 2rem;
+    color: black;
+  }
 }
-@keyframes startPlayCheckers{
-    0%{
-        top: 15000px;
-    }
-    100%{
-        top: 0px;
-    }
+.fa-arrow-circle-up{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #fff;
+    visibility: hidden;
 }

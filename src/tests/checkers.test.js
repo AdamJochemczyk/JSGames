@@ -1,104 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/b78e2da6f5.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="bundle.min.js" defer></script>
-    <title>JS games</title>
-  </head>
-  <body>
-    <section class="menu">
-      <div class="container">
-        <div class="leftTriangle">
-          <p class="leftTriangle__text">Rock & paper & scissors</p>
-        </div>
-        <div class="middleTriangle">
-          <p class="middleTriangle__text">MENU</p>
-        </div>
-        <div class="rightTriangle">
-          <p class="rightTriangle__text">Tic tac toe</p>
-        </div>
-        <div class="bottomTriangle">
-          <p class="bottomTriangle__text">Checkers</p>
-        </div>
-      </div>
-    </section>
-    <section class="rock">
-      <h2 class="rock__title">Rock, paper & scissors</h2>
-      <a href="#"><i class="fas fa-arrow-circle-right"></i> </a>
-      <div class="rock__container">
-        <div class="rock__points">
-          <p class="yourScore">Your score:</p>
-          <p class="enemyScore">Enemy score:</p>
-        </div>
-        <div class="rock__row">
-          <div class="choose">
-            <img
-              src="./img/scissors.png"
-              alt="scissors"
-              class="choose__img"
-              id="enemy__img"
-            />
-            <p class="choose__txt" id="enemy__txt"></p>
-          </div>
-        </div>
-        <div class="rock__row">
-          <div class="choose">
-            <img src="./img/paper.png" alt="paper" class="choose__img" />
-            <p class="choose__txt">Paper</p>
-          </div>
-          <div class="choose">
-            <img src="./img/rock.png" alt="rock" class="choose__img" />
-            <p class="choose__txt">Rock</p>
-          </div>
-          <div class="choose">
-            <img src="./img/scissors.png" alt="scissors" class="choose__img" />
-            <p class="choose__txt">Scissors</p>
-          </div>
-        </div>
-        <button class="startRockGame">Play</button>
-      </div>
-      <footer>
-        <p>
-          Icons from:
-          <a
-            href="https://www.vecteezy.com/free-vector/rock-paper-scissors-game"
-            >Rock Paper Scissors Game Vectors by Vecteezy</a
-          >
-        </p>
-      </footer>
-    </section>
-    <section class="tictactoe">
-      <h2 class="rock__title">Tic, tac, toe</h2>
-      <a href="#"><i class="fas fa-arrow-circle-left"></i></a>
-        <p class="tictactoe__winner"></p>
-      <div class="tictactoe__container">
-        <div class="field" data-index="0"></div>
-        <div class="field" data-index="1"></div>
-        <div class="field" data-index="2"></div>
-        <div class="field" data-index="3"></div>
-        <div class="field" data-index="4"></div>
-        <div class="field" data-index="5"></div>
-        <div class="field" data-index="6"></div>
-        <div class="field" data-index="7"></div>
-        <div class="field" data-index="8"></div>
-      </div>
+import {
+  board,
+  cells,
+  redsPieces,
+  blacksPieces,
+  redTurnText,
+  blackTurnText,
+  turn,
+  redScore,
+  blackScore,
+  playerPieces,
+  selectedPiece,
+  initCheckersGame,
+  getPlayerPieces,
+} from "../scripts/checkers";
 
-      <div>
-        <button class="tictactoe__btn" id="tictactoewithplayer">Player vs player</button
-        ><button class="tictactoe__btn" id="tictactoewithcomputer">Player vs computer</button>
-      </div>
-    </section>
-    <section class="checkers">
+describe('Tests for checkers', () => {
+    document.body.innerHTML = `
+    <div class="checkers">
       <a href="#"><i class="fas fa-arrow-circle-up"></i></a>
       <h2 class="rock__title">
         checkers
@@ -195,6 +113,93 @@
             </span>
         </div>
       </div>
-    </section>
-  </body>
-</html>
+    </div>
+    `;
+
+    test("Program have right data after init game",()=>{
+        initCheckersGame()
+        expect(board).toStrictEqual([
+          null,
+          0,
+          null,
+          1,
+          null,
+          2,
+          null,
+          3,
+          4,
+          null,
+          5,
+          null,
+          6,
+          null,
+          7,
+          null,
+          null,
+          8,
+          null,
+          9,
+          null,
+          10,
+          null,
+          11,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          12,
+          null,
+          13,
+          null,
+          14,
+          null,
+          15,
+          null,
+          null,
+          16,
+          null,
+          17,
+          null,
+          18,
+          null,
+          19,
+          20,
+          null,
+          21,
+          null,
+          22,
+          null,
+          23,
+          null,
+        ]);
+        expect(cells.length).toBe(64)
+        expect(redsPieces.length && blacksPieces.length).toBe(12);
+        expect(turn).toBeFalsy()
+        expect(redScore && blackScore).toBe(12)
+        expect(selectedPiece).toEqual({
+          pieceId: -1,
+          indexOfBoardPiece: -1,
+          isKing: false,
+          seventhSpace: false,
+          ninthSpace: false,
+          fourteenthSpace: false,
+          eighteenthSpace: false,
+          minusSeventhSpace: false,
+          minusNinthSpace: false,
+          minusFourteenthSpace: false,
+          minusEighteenthSpace: false,
+        });
+    })
+})

@@ -6,7 +6,8 @@ let leftTriangle,
   checkers,
   rock,
   backRockButton,
-  backTicButton;
+  backTicButton,
+  backCheckersButton;
 
 function getMenuElements() {
   leftTriangle = document.querySelector(".leftTriangle");
@@ -29,6 +30,7 @@ function addMenuActions() {
 
   backRockButton = document.querySelector(".fa-arrow-circle-right");
   backTicButton = document.querySelector(".fa-arrow-circle-left");
+  backCheckersButton=document.querySelector(".fa-arrow-circle-up")
 
   rightTriangle.addEventListener("click", () => {
     tictactoe.classList.add("playTicTacToe");
@@ -44,7 +46,13 @@ function addMenuActions() {
 
   bottomTriangle.addEventListener("click", () => {
     checkers.classList.add("playCheckers");
+    backCheckersButton.classList.add("v_show");
   });
+
+  backCheckersButton.addEventListener("click",()=>{
+    backCheckersButton.classList.toggle("v_show")
+    checkers.classList.remove("playCheckers")
+  })
 
   leftTriangle.addEventListener("click", () => {
     rock.classList.add("playRock");
