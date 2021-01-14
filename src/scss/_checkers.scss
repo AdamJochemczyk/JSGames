@@ -56,19 +56,47 @@
     }
   }
 
-  .red-turn-text{
+  .red-turn-text {
     font-size: 2rem;
   }
-  .black-turn-text{
+  .black-turn-text {
     font-size: 2rem;
     color: black;
   }
 }
-.fa-arrow-circle-up{
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    color: #fff;
-    visibility: hidden;
+.fa-arrow-circle-up {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: #fff;
+  visibility: hidden;
+}
+.turn{
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 728px) {
+  .checkers__container {
+    .checkers__board {
+      td {
+        width: 30px;
+        height: 30px;
+      }
+      @mixin piece{
+        width: 15px;
+        height: 15px;
+        padding: 10px;
+      }
+      .black-piece {
+      @include piece;
+    }
+    .red-piece {
+      @include piece;
+    }
+    }
+  }
+  .fa-arrow-circle-up{
+    left: 10px;
+  }
 }

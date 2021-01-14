@@ -54,6 +54,11 @@
         color: #fff;
         visibility: hidden;
     }
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 .playTicTacToe{
     animation: startPlayTicTacToe 1s;

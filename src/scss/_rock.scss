@@ -33,7 +33,7 @@
         display: flex;
         justify-content: center;
         margin-top: 2rem;
-        width: 400px;
+        width: 300px;
         gap: 10px;
 
         .choose{
@@ -115,5 +115,10 @@ footer{
     a{
         text-decoration: none;
         color:#fff;
+    }
+}
+@media(max-width:768px){
+    .fa-arrow-circle-right{
+        left: 10px;
     }
 }
