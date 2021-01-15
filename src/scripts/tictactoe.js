@@ -147,7 +147,6 @@ const freezeBoardAfterWin = () => {
 };
 
 const reset=()=>{
-  console.log("reset")
   fields = Array.from(document.querySelectorAll(".field"));
   fields.map(el => {
     el.textContent="";
@@ -174,4 +173,5 @@ export {
   initGameWithPlayer,
   checkTicTacToeWinner,
   fullField,
+  reset,
 };

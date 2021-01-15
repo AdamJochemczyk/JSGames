@@ -16,7 +16,7 @@ const removeCellOnClick = () => {
   }
 };
 
-const findPiece = (pieceId) => {
+const findPiece = pieceId => {
   return board.indexOf(parseInt(pieceId));
 };
 
@@ -63,10 +63,11 @@ const changeData = (indexOfBoardPiece, modifiedIndex, removePiece) => {
   board[indexOfBoardPiece] = null;
   board[modifiedIndex] = parseInt(selectedPiece.pieceId);
   if (turn && selectedPiece.pieceId < 12 && modifiedIndex >= 57) {
-    document.getElementById(selectedPiece.pieceId).classList.add("king");
+    document.getElementById(selectedPiece.pieceId).style.backgroundColor="purple";
   }
   if (!turn && selectedPiece.pieceId >= 12 && modifiedIndex <= 7) {
-    document.getElementById(selectedPiece.pieceId).classList.add("king");
+    document.getElementById(selectedPiece.pieceId).style.backgroundColor =
+      "orange";
   }
   if (removePiece) {
     board[removePiece] = null;

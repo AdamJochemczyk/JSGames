@@ -11,6 +11,7 @@ import {
   computerMove,
   initGameWithPlayer,
   fullField,
+  reset,
 } from "../scripts/tictactoe";
 
 describe("Tests for ticTacToe games", () => {
@@ -27,6 +28,7 @@ describe("Tests for ticTacToe games", () => {
         <div class="field" data-index="8"></div>
         <button class="tictactoe__btn" id="tictactoewithplayer">Player vs player</button
         ><button class="tictactoe__btn" id="tictactoewithcomputer">Player vs computer</button>
+        <button class="tictactoe__btn" id="tictactoereset">Reset</button>
     `;
 
   test("Buttons to start playing game exists", () => {
@@ -199,4 +201,13 @@ describe("Tests for ticTacToe games", () => {
     checkTicTacToeWinner();
     expect(ticTacToeWinner.textContent).toBe("O won game!");
   });
+
+  test("After reset fulledFields back to undefined",()=>{
+    reset();
+    let test=true;
+    for(const el of fulledFields){
+      if(el!==undefined) test=false;
+    }
+    expect(test).toBe(true)
+  })
 });
