@@ -4,7 +4,7 @@
 
 In this repo I code 3 games: paper, rock & scissors, checkers and tic tac toe.
 
-Live demo: available soon
+Live demo: https://adamjochemczyk.github.io/JSGames/index.html
 
 ## What I learned during project?
 
