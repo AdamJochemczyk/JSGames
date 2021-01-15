@@ -1,6 +1,7 @@
 let fields,
   playWithPlayerButton,
   playWithComputerButton,
+  resetButton,
   ticTacToeWinner,
   inTicTacToeGame = false,
   whoseTurn = true,
@@ -10,6 +11,7 @@ let fields,
 const getPlayTicTacToeButtons = () => {
   playWithPlayerButton = document.querySelector("#tictactoewithplayer");
   playWithComputerButton = document.querySelector("#tictactoewithcomputer");
+  resetButton=document.querySelector("#tictactoereset");
 
   playWithComputerButton.addEventListener("click", () => {
     if (!inTicTacToeGame) {
@@ -26,6 +28,17 @@ const getPlayTicTacToeButtons = () => {
       inTicTacToeGame = true;
     }
   });
+
+  resetButton.addEventListener("click",()=>{
+    if (inTicTacToeGame) {
+      reset()
+      playWithComputerButton.disable = "false";
+      playWithPlayerButton.disable = "false";
+      playWithComputerButton.style.cursor = "pointer";
+      playWithPlayerButton.style.cursor = "pointer";
+      inTicTacToeGame = false;
+    }
+  })
 };
 
 const disablePlayButtons = () => {
@@ -124,14 +137,26 @@ const checkTicTacToeWinner = () => {
 };
 
 const freezeBoardAfterWin = () => {
-  fields.map((el) => {
+  fields.map(el => {
     el.parentNode.replaceChild(el.cloneNode(true), el);
   });
   fields = Array.from(document.querySelectorAll(".field"));
-  fields.map((el) => {
+  fields.map(el => {
     el.style.cursor = "default";
   });
 };
+
+const reset=()=>{
+  console.log("reset")
+  fields = Array.from(document.querySelectorAll(".field"));
+  fields.map(el => {
+    el.textContent="";
+    el.style.cursor = "pointer";
+  });
+  fulledFields=fulledFields.map(el=>el=undefined)
+  whoseTurn=true;
+  computer=false;
+}
 
 export {
   fields,

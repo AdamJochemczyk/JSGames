@@ -10,7 +10,8 @@ let playerScoreElem,
   playerScore = 0,
   enemyScore = 0,
   playRockButton,
-  randomEnemyImageHandle;
+  randomEnemyImageHandle,
+  intervals=[];
 
 const getScoreElements = () => {
   playerScoreElem = document.querySelector(".yourScore");
@@ -33,10 +34,14 @@ const randomEnemyImage = ()=>{
   const images = ["./img/paper.png", "./img/rock.png", "./img/scissors.png"];
   let imgIndex = 0;
   enemyText.innerHTML='';
-  randomEnemyImageHandle=setInterval(() => {
-    enemyImg.src = images[imgIndex % 3];
-    imgIndex++;
-  }, 300);
+  if(intervals.length<1){
+    intervals.push(
+      setInterval(() => {
+        enemyImg.src = images[imgIndex % 3];
+        imgIndex++;
+      }, 300)
+    );
+  }
 }
 
 const initRockGame = () => {
@@ -108,7 +113,11 @@ const addPlayerPoint = () => {
 };
 
 const setChoose = choose => {
-  clearInterval(randomEnemyImageHandle);
+  intervals.map(int => {
+    clearInterval(int);
+    intervals = [];
+  });
+  //clearInterval(randomEnemyImageHandle);
   playerChoose = choose;
   let index = Math.floor(Math.random() * 3);
   let possibleChoices = ["paper", "rock", "scissors"];
